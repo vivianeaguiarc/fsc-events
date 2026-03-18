@@ -1,4 +1,13 @@
-import { sum } from './sum.js';
+import express from "express";
 
+const app = express();
 
-console.log(sum(2, 3));
+app.use(express.json());
+
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello, World!" });
+});
+
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
