@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: fsc-events-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fsc_events
+    volumes:
+      - fsc-events-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  fsc-events-postgres-data:
